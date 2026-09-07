@@ -2,59 +2,107 @@
 
 A modern, conversion-oriented marketing site for **NexusAI**, a fictional AI-powered product workflow platform that helps teams ship faster.
 
-**Repo:** [github.com/Kerd3/nexusai-landing](https://github.com/Kerd3/nexusai-landing)
+**Live structure:** single-page app with hash routing (`#about`, `#pricing`, etc.) so every nav and footer link works without a backend.
 
 ---
 
-## What's in this repo
+## Features
 
-| File | Description |
-|------|-------------|
-| `README.md` | This file |
-| `app.js` | Pricing calculator + hash router + form handlers |
-
-The full single-file landing page (`index.html` with embedded CSS) was built in the project workspace. To complete the repo, add `index.html` (and optionally `styles.css` if you split assets).
-
----
-
-## Features (full page)
-
-- Bold hero, sticky nav, mobile menu
-- Feature grid, How it works, Integrations
-- **Interactive pricing calculator** (seats slider, monthly/annual, plan recommendation)
-- Pricing tiers, testimonials, email CTA
-- Hash-routed pages: About, Blog, Careers, Contact, Changelog, Privacy, Terms, Security
-- Fully responsive, no build step, no dependencies
+- **Bold hero** with gradient headline, social proof, and dual CTAs  
+- **Sticky navigation** with blur backdrop and mobile menu  
+- **Feature grid** — AI specs, workflows, prioritization, integrations, security, insights  
+- **How it works** — 3-step onboarding flow  
+- **Integrations** — Slack, GitHub, Linear, Jira, Notion, Figma, Amplitude, Webhooks  
+- **Interactive pricing calculator**
+  - Seat slider (1–100)
+  - Monthly / Annual toggle (20% annual discount)
+  - Live total + plan recommendation (Starter / Pro / Enterprise)
+- **Pricing tiers** — Starter (free), Pro, Enterprise  
+- **Testimonials** from product teams  
+- **Email signup CTA** with demo success state  
+- **Secondary pages** (hash-routed): About, Blog, Careers, Contact, Changelog, Privacy, Terms, Security  
+- **Fully responsive** — mobile, tablet, desktop  
 
 ---
 
-## Quick start (once `index.html` is present)
+## Tech
+
+| Layer | Details |
+|-------|---------|
+| Markup | Semantic HTML5 |
+| Style | Vanilla CSS (custom properties, Grid, Flexbox) |
+| Script | Vanilla JS — pricing calculator + hash router |
+| Fonts | [Inter](https://fonts.google.com/specimen/Inter) via Google Fonts |
+| Dependencies | None — pure static files |
+
+No build step. Open `index.html` in a browser or serve the folder with any static host.
+
+---
+
+## Quick start
 
 ```bash
+# Clone
 git clone https://github.com/Kerd3/nexusai-landing.git
 cd nexusai-landing
+
+# Option A — open directly
+open index.html
+
+# Option B — local server (recommended)
 npx serve .
-# open http://localhost:3000
+# or: python -m http.server 8000
 ```
+
+Then visit `http://localhost:3000` (or the port your server prints).
 
 ### GitHub Pages
 
-1. **Settings → Pages**
-2. Source: branch `main`, folder `/ (root)`
-3. Site: `https://kerd3.github.io/nexusai-landing/`
+1. Repo **Settings → Pages**
+2. Source: **Deploy from a branch** → `main` / `/ (root)`
+3. Site will be at: `https://kerd3.github.io/nexusai-landing/`
 
 ---
 
-## Hash routes
+## Project layout
+
+```
+nexusai-landing/
+├── index.html      # Full landing page + hash-routed subpages
+└── README.md
+```
+
+Secondary routes are implemented inside `index.html` via URL hashes:
 
 | Hash | Page |
 |------|------|
-| `#home` | Landing |
-| `#features` `#how` `#integrations` `#pricing` `#testimonials` `#signup` | Landing sections |
-| `#about` `#blog` `#careers` `#contact` `#changelog` `#privacy` `#terms` `#security` | Subpages |
+| `#home` / `#` | Landing |
+| `#features` | Features section |
+| `#how` | How it works |
+| `#integrations` | Integrations |
+| `#pricing` | Pricing + calculator |
+| `#testimonials` | Customers |
+| `#signup` | Final CTA |
+| `#about` | About |
+| `#blog` | Blog |
+| `#careers` | Careers |
+| `#contact` | Contact form |
+| `#changelog` | Changelog |
+| `#privacy` | Privacy Policy |
+| `#terms` | Terms of Service |
+| `#security` | Security |
+
+---
+
+## Customization
+
+- **Brand / product name** — search for `NexusAI` and the logo mark `N`
+- **Colors** — edit CSS variables in `:root` (`--primary`, `--accent`, `--bg`, etc.)
+- **Pricing** — change `PRICE_PER_SEAT_MONTHLY` and `ANNUAL_DISCOUNT` in the calculator script
+- **Copy** — update headlines, feature cards, and testimonials in the HTML
 
 ---
 
 ## License
 
-MIT
+MIT — feel free to use this as a starting point for your own SaaS landing page.

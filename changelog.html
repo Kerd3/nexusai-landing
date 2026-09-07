@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — NexusAI</title>
+  <meta name="description" content="Product updates and release notes for NexusAI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19; --surface: #111827; --border: #243044;
+      --text: #f1f5f9; --text-muted: #94a3b8;
+      --primary: #6366f1; --primary-hover: #818cf8; --accent: #22d3ee; --success: #34d399;
+      --radius: 12px; --max-width: 720px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--primary-hover); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(11,15,25,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 7px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: white; }
+    .nav a.back { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); }
+    .nav a.back:hover { color: var(--text); text-decoration: none; }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 64px 24px 96px; }
+    h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .lead { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 48px; }
+    .entry { padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .entry:last-child { border-bottom: none; }
+    .entry-date { font-size: 0.8125rem; font-weight: 600; color: var(--primary-hover); margin-bottom: 6px; }
+    .entry h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+    .entry ul { margin-left: 20px; color: var(--text-muted); }
+    .entry li { margin-bottom: 6px; }
+    .tag { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+    .tag-new { background: rgba(52,211,153,0.15); color: var(--success); }
+    .tag-improve { background: rgba(99,102,241,0.15); color: var(--primary-hover); }
+    .tag-fix { background: rgba(248,113,113,0.15); color: #f87171; }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.8125rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">N</span> NexusAI</a>
+      <a href="index.html" class="back">← Back to home</a>
+    </div>
+  </nav>
+  <main>
+    <h1>Changelog</h1>
+    <p class="lead">Product updates, improvements, and fixes. We ship often.</p>
+
+    <div class="entry">
+      <div class="entry-date">September 4, 2026</div>
+      <h2>GPT-4o powered automation + pricing calculator</h2>
+      <ul>
+        <li><span class="tag tag-new">New</span> AI workflows now powered by GPT-4o for faster, higher-quality specs</li>
+        <li><span class="tag tag-new">New</span> Interactive pricing calculator on the homepage</li>
+        <li><span class="tag tag-improve">Improve</span> Slack integration latency reduced by ~40%</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">August 21, 2026</div>
+      <h2>Priority ranking v2</h2>
+      <ul>
+        <li><span class="tag tag-new">New</span> AI ranking now factors in customer signal from Amplitude and support tickets</li>
+        <li><span class="tag tag-improve">Improve</span> Faster dashboard load times</li>
+        <li><span class="tag tag-fix">Fix</span> Fixed rare sync conflict when both Linear and Jira were connected</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">August 5, 2026</div>
+      <h2>Annual billing & volume discounts</h2>
+      <ul>
+        <li><span class="tag tag-new">New</span> Annual plans with 20% savings</li>
+        <li><span class="tag tag-new">New</span> Volume discounts for teams of 50+</li>
+        <li><span class="tag tag-improve">Improve</span> Clearer seat management in settings</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">July 18, 2026</div>
+      <h2>Notion & Figma integrations</h2>
+      <ul>
+        <li><span class="tag tag-new">New</span> Two-way Notion page sync for specs and docs</li>
+        <li><span class="tag tag-new">New</span> Figma design links auto-attached to related issues</li>
+        <li><span class="tag tag-fix">Fix</span> GitHub PR status now correctly reflects draft state</li>
+      </ul>
+    </div>
+  </main>
+  <footer>© 2026 NexusAI Inc. · <a href="index.html">Home</a> · <a href="contact.html">Contact</a></footer>
+</body>
+</html>

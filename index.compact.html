@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusAI — Ship faster with AI-powered workflows</title>
+<meta name="description" content="NexusAI helps teams automate busywork, align on priorities, and ship products 3× faster.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0b0f19;
+--surface: #111827;
+--surface-2: #1a2234;
+--border: #243044;
+--text: #f1f5f9;
+--text-muted: #94a3b8;
+--primary: #6366f1;
+--primary-hover: #818cf8;
+--primary-dark: #4f46e5;
+--accent: #22d3ee;
+--success: #34d399;
+--radius: 12px;
+--radius-sm: 8px;
+--shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+--max-width: 1120px;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
+background: var(--bg);
+color: var(--text);
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+}
+a {
+color: inherit;
+text-decoration: none;
+}
+img {
+max-width: 100%;
+display: block;
+}
+.container {
+width: 100%;
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 0 24px;
+}
+/* ========== NAV ========== */
+.nav {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(11, 15, 25, 0.85);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid transparent;
+transition: border-color 0.2s, background 0.2s;
+}
+.nav.scrolled {
+border-bottom-color: var(--border);
+background: rgba(11, 15, 25, 0.95);
+}
+.nav-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 72px;
+}
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-weight: 700;
+font-size: 1.25rem;
+letter-spacing: -0.02em;
+}
+.logo-mark {
+width: 32px;
+height: 32px;
+background: linear-gradient(135deg, var(--primary), var(--accent));
+border-radius: 8px;
+display: grid;
+place-items: center;
+font-size: 14px;
+font-weight: 800;
+color: white;
+}
+.nav-links {
+display: flex;
+align-items: center;
+gap: 32px;
+list-style: none;
+}
+.nav-links a {
+font-size: 0.9375rem;
+font-weight: 500;
+color: var(--text-muted);
+transition: color 0.15s;
+}
+.nav-links a:hover {
+color: var(--text);
+}
+.nav-cta {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font-family: inherit;
+font-weight: 600;
+font-size: 0.9375rem;
+border-radius: var(--radius-sm);
+border: none;
+cursor: pointer;
+transition: all 0.15s ease;
+white-space: nowrap;
+}
+.btn-sm {
+padding: 8px 16px;
+font-size: 0.875rem;
+}
+.btn-md {
+padding: 12px 24px;
+}
+.btn-lg {
+padding: 16px 32px;
+font-size: 1rem;
+}
+.btn-primary {
+background: var(--primary);
+color: white;
+box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+}
+.btn-primary:hover {
+background: var(--primary-hover);
+box-shadow: 0 0 20px 2px rgba(99, 102, 241, 0.35);
+}
+.btn-ghost {
+background: transparent;
+color: var(--text-muted);
+border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+color: var(--text);
+border-color: #3b4a66;
+background: rgba(255, 255, 255, 0.03);
+}
+.btn-white {
+background: white;
+color: var(--bg);
+}
+.btn-white:hover {
+background: #e2e8f0;
+}
+.mobile-toggle {
+display: none;
+background: none;
+border: none;
+color: var(--text);
+cursor: pointer;
+padding: 8px;
+}
+.mobile-toggle svg {
+width: 24px;
+height: 24px;
+}
+/* ========== HERO ========== */
+.hero {
+position: relative;
+padding: 96px 0 120px;
+overflow: hidden;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: -20%;
+left: 50%;
+transform: translateX(-50%);
+width: 120%;
+height: 80%;
+background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.18) 0%, transparent 60%);
+pointer-events: none;
+}
+.hero-content {
+position: relative;
+text-align: center;
+max-width: 780px;
+margin: 0 auto;
+}
+.badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 6px 14px;
+background: rgba(99, 102, 241, 0.15);
+border: 1px solid rgba(99, 102, 241, 0.3);
+border-radius: 999px;
+font-size: 0.8125rem;
+font-weight: 500;
+color: var(--primary-hover);
+margin-bottom: 24px;
+}
+.badge-dot {
+width: 6px;
+height: 6px;
+background: var(--accent);
+border-radius: 50%;
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.4; }
+}
+.hero h1 {
+font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+font-weight: 800;
+line-height: 1.1;
+letter-spacing: -0.03em;
+margin-bottom: 20px;
+}
+.hero h1 span {
+background: linear-gradient(135deg, var(--primary-hover), var(--accent));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.hero-sub {
+font-size: 1.25rem;
+color: var(--text-muted);
+max-width: 560px;
+margin: 0 auto 36px;
+line-height: 1.6;
+}
+.hero-ctas {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+justify-content: center;
+margin-bottom: 48px;
+}
+.hero-social-proof {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
+}
+.avatars {
+display: flex;
+}
+.avatar {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border: 2px solid var(--bg);
+margin-left: -10px;
+background: var(--surface-2);
+display: grid;
+place-items: center;
+font-size: 0.75rem;
+font-weight: 600;
+color: var(--text-muted);
+}
+.avatar:first-child {
+margin-left: 0;
+}
+.hero-social-proof p {
+font-size: 0.875rem;
+color: var(--text-muted);
+}
+.hero-social-proof strong {
+color: var(--text);
+}
+/* ========== LOGOS ========== */
+.logos {
+padding: 40px 0 80px;
+border-bottom: 1px solid var(--border);
+}
+.logos-label {
+text-align: center;
+font-size: 0.8125rem;
+font-weight: 500;
+color: var(--text-muted);
+text-transform: uppercase;
+letter-spacing: 0.06em;
+margin-bottom: 28px;
+}
+.logos-row {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 40px 56px;
+opacity: 0.55;
+}
+.logo-item {
+font-size: 1.125rem;
+font-weight: 700;
+letter-spacing: -0.02em;
+color: var(--text-muted);
+}
+/* ========== VALUE / FEATURES ========== */
+section {
+padding: 100px 0;
+}
+.section-header {
+text-align: center;
+max-width: 600px;
+margin: 0 auto 64px;
+}
+.section-header h2 {
+font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+font-weight: 800;
+letter-spacing: -0.025em;
+margin-bottom: 16px;
+line-height: 1.2;
+}
+.section-header p {
+font-size: 1.125rem;
+color: var(--text-muted);
+}
+.features-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+.feature-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 32px;
+transition: border-color 0.2s, transform 0.2s;
+}
+.feature-card:hover {
+border-color: #3b4a66;
+transform: translateY(-2px);
+}
+.feature-icon {
+width: 48px;
+height: 48px;
+border-radius: 12px;
+display: grid;
+place-items: center;
+margin-bottom: 20px;
+font-size: 1.5rem;
+background: rgba(99, 102, 241, 0.12);
+}
+.feature-card h3 {
+font-size: 1.125rem;
+font-weight: 600;
+margin-bottom: 10px;
+}
+.feature-card p {
+font-size: 0.9375rem;
+color: var(--text-muted);
+line-height: 1.6;
+}
+/* ========== HOW IT WORKS ========== */
+.steps {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+counter-reset: step;
+}
+.step {
+position: relative;
+text-align: center;
+padding: 0 16px;
+}
+.step-num {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+display: grid;
+place-items: center;
+font-weight: 700;
+font-size: 1.125rem;
+margin: 0 auto 20px;
+box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+.step h3 {
+font-size: 1.125rem;
+font-weight: 600;
+margin-bottom: 8px;
+}
+.step p {
+font-size: 0.9375rem;
+color: var(--text-muted);
+}
+/* ========== PRICING ========== */
+.pricing {
+background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.04) 50%, transparent 100%);
+}
+.pricing-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+align-items: stretch;
+}
+.price-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 36px 28px;
+display: flex;
+flex-direction: column;
+position: relative;
+}
+.price-card.popular {
+border-color: var(--primary);
+background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, var(--surface) 40%);
+box-shadow: 0 0 0 1px var(--primary), var(--shadow);
+}
+.popular-badge {
+position: absolute;
+top: -12px;
+left: 50%;
+transform: translateX(-50%);
+background: var(--primary);
+color: white;
+font-size: 0.75rem;
+font-weight: 600;
+padding: 4px 14px;
+border-radius: 999px;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+}
+.price-tier {
+font-size: 0.875rem;
+font-weight: 600;
+color: var(--text-muted);
+text-transform: uppercase;
+letter-spacing: 0.05em;
+margin-bottom: 8px;
+}
+.price-amount {
+font-size: 2.75rem;
+font-weight: 800;
+letter-spacing: -0.03em;
+margin-bottom: 4px;
+}
+.price-amount span {
+font-size: 1rem;
+font-weight: 500;
+color: var(--text-muted);
+}
+.price-desc {
+font-size: 0.9375rem;
+color: var(--text-muted);
+margin-bottom: 28px;
+}
+.price-features {
+list-style: none;
+margin-bottom: 32px;
+flex: 1;
+}
+.price-features li {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+font-size: 0.9375rem;
+padding: 8px 0;
+color: var(--text-muted);
+}
+.price-features li svg {
+flex-shrink: 0;
+margin-top: 3px;
+color: var(--success);
+}
+.price-card .btn {
+width: 100%;
+}
+/* ========== PRICING CALCULATOR ========== */
+.pricing-calculator {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 32px;
+margin-bottom: 48px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+}
+.calc-controls {
+display: flex;
+flex-direction: column;
+gap: 28px;
+}
+.calc-label {
+font-size: 0.875rem;
+font-weight: 600;
+color: var(--text-muted);
+margin-bottom: 10px;
+display: block;
+}
+.billing-toggle {
+display: inline-flex;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 999px;
+padding: 4px;
+gap: 2px;
+}
+.billing-toggle button {
+font-family: inherit;
+font-size: 0.875rem;
+font-weight: 600;
+padding: 8px 18px;
+border: none;
+border-radius: 999px;
+background: transparent;
+color: var(--text-muted);
+cursor: pointer;
+transition: all 0.15s;
+}
+.billing-toggle button.active {
+background: var(--primary);
+color: white;
+}
+.billing-toggle .save-badge {
+font-size: 0.6875rem;
+background: rgba(52, 211, 153, 0.2);
+color: var(--success);
+padding: 2px 6px;
+border-radius: 4px;
+margin-left: 4px;
+font-weight: 700;
+}
+.seats-control {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.seats-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.seats-value {
+font-size: 1.5rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: var(--text);
+}
+.seats-slider {
+-webkit-appearance: none;
+appearance: none;
+width: 100%;
+height: 8px;
+border-radius: 999px;
+background: var(--border);
+outline: none;
+cursor: pointer;
+}
+.seats-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 22px;
+height: 22px;
+border-radius: 50%;
+background: var(--primary);
+border: 3px solid white;
+box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
+cursor: pointer;
+transition: transform 0.15s;
+}
+.seats-slider::-webkit-slider-thumb:hover {
+transform: scale(1.1);
+}
+.seats-slider::-moz-range-thumb {
+width: 22px;
+height: 22px;
+border-radius: 50%;
+background: var(--primary);
+border: 3px solid white;
+box-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
+cursor: pointer;
+}
+.seats-range {
+display: flex;
+justify-content: space-between;
+font-size: 0.75rem;
+color: var(--text-muted);
+}
+.calc-result {
+background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(34, 211, 238, 0.06));
+border: 1px solid rgba(99, 102, 241, 0.3);
+border-radius: var(--radius);
+padding: 28px;
+text-align: center;
+}
+.calc-plan-name {
+font-size: 0.8125rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: var(--primary-hover);
+margin-bottom: 8px;
+}
+.calc-total {
+font-size: 2.75rem;
+font-weight: 800;
+letter-spacing: -0.03em;
+line-height: 1.1;
+margin-bottom: 4px;
+}
+.calc-total span {
+font-size: 1rem;
+font-weight: 500;
+color: var(--text-muted);
+}
+.calc-breakdown {
+font-size: 0.875rem;
+color: var(--text-muted);
+margin-bottom: 20px;
+}
+.calc-savings {
+display: none;
+font-size: 0.8125rem;
+color: var(--success);
+font-weight: 600;
+margin-bottom: 16px;
+}
+.calc-savings.visible {
+display: block;
+}
+.calc-cta {
+width: 100%;
+}
+.calc-note {
+font-size: 0.75rem;
+color: var(--text-muted);
+margin-top: 12px;
+}
+@media (max-width: 768px) {
+.pricing-calculator {
+grid-template-columns: 1fr;
+gap: 28px;
+padding: 24px;
+}
+}
+/* ========== TESTIMONIALS ========== */
+.testimonials-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+.testimonial-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 28px;
+display: flex;
+flex-direction: column;
+}
+.stars {
+color: #fbbf24;
+font-size: 0.875rem;
+letter-spacing: 2px;
+margin-bottom: 16px;
+}
+.testimonial-card blockquote {
+font-size: 0.975rem;
+line-height: 1.65;
+color: var(--text);
+margin-bottom: 24px;
+flex: 1;
+}
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.author-avatar {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+background: var(--surface-2);
+display: grid;
+place-items: center;
+font-weight: 600;
+font-size: 0.875rem;
+color: var(--primary-hover);
+}
+.author-info strong {
+display: block;
+font-size: 0.9375rem;
+font-weight: 600;
+}
+.author-info span {
+font-size: 0.8125rem;
+color: var(--text-muted);
+}
+/* ========== CTA / SIGNUP ========== */
+.cta-section {
+padding: 100px 0;
+}
+.cta-box {
+background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(34, 211, 238, 0.1));
+border: 1px solid rgba(99, 102, 241, 0.35);
+border-radius: 20px;
+padding: 64px 48px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.cta-box::before {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(circle at 70% 20%, rgba(34, 211, 238, 0.15), transparent 50%);
+pointer-events: none;
+}
+.cta-box h2 {
+font-size: clamp(1.75rem, 3vw, 2.25rem);
+font-weight: 800;
+letter-spacing: -0.025em;
+margin-bottom: 12px;
+position: relative;
+}
+.cta-box > p {
+font-size: 1.125rem;
+color: var(--text-muted);
+max-width: 480px;
+margin: 0 auto 32px;
+position: relative;
+}
+.signup-form {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+justify-content: center;
+max-width: 480px;
+margin: 0 auto;
+position: relative;
+}
+.signup-form input {
+flex: 1;
+min-width: 220px;
+padding: 14px 18px;
+border-radius: var(--radius-sm);
+border: 1px solid var(--border);
+background: var(--bg);
+color: var(--text);
+font-family: inherit;
+font-size: 0.975rem;
+outline: none;
+transition: border-color 0.15s;
+}
+.signup-form input::placeholder {
+color: var(--text-muted);
+}
+.signup-form input:focus {
+border-color: var(--primary);
+}
+.form-note {
+font-size: 0.8125rem;
+color: var(--text-muted);
+margin-top: 16px;
+position: relative;
+}
+.form-success {
+display: none;
+color: var(--success);
+font-weight: 500;
+margin-top: 16px;
+position: relative;
+}
+/* ========== INTEGRATIONS ========== */
+.integrations-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
+}
+.integration-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 24px 20px;
+text-align: center;
+transition: border-color 0.2s, transform 0.2s;
+}
+.integration-card:hover {
+border-color: #3b4a66;
+transform: translateY(-2px);
+}
+.integration-icon {
+width: 48px;
+height: 48px;
+margin: 0 auto 14px;
+border-radius: 12px;
+display: grid;
+place-items: center;
+font-size: 1.5rem;
+background: rgba(99, 102, 241, 0.1);
+}
+.integration-card h3 {
+font-size: 0.975rem;
+font-weight: 600;
+margin-bottom: 4px;
+}
+.integration-card p {
+font-size: 0.8125rem;
+color: var(--text-muted);
+}
+@media (max-width: 900px) {
+.integrations-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 480px) {
+.integrations-grid {
+grid-template-columns: 1fr;
+}
+}
+/* ========== SUBPAGES (hash routing) ========== */
+.landing-view { display: block; }
+.subpage-view {
+display: none;
+max-width: 720px;
+margin: 0 auto;
+padding: 48px 24px 96px;
+min-height: 60vh;
+}
+.subpage-view.active { display: block; }
+body.show-subpage .landing-view { display: none; }
+body.show-subpage .subpage-view.active { display: block; }
+body.show-subpage footer { display: block; }
+.subpage-view h1 {
+font-size: 2.25rem;
+font-weight: 800;
+letter-spacing: -0.03em;
+margin-bottom: 8px;
+}
+.subpage-view .lead {
+font-size: 1.1rem;
+color: var(--text-muted);
+margin-bottom: 36px;
+}
+.subpage-view h2 {
+font-size: 1.2rem;
+font-weight: 700;
+margin: 32px 0 12px;
+}
+.subpage-view p,
+.subpage-view li {
+color: var(--text-muted);
+margin-bottom: 12px;
+}
+.subpage-view ul {
+margin: 0 0 16px 20px;
+}
+.subpage-back {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+font-size: 0.875rem;
+font-weight: 500;
+color: var(--text-muted);
+margin-bottom: 28px;
+transition: color 0.15s;
+}
+.subpage-back:hover { color: var(--text); }
+.sub-job {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 18px 22px;
+margin-bottom: 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+flex-wrap: wrap;
+}
+.sub-job strong { color: var(--text); }
+.sub-job span { font-size: 0.8125rem; color: var(--text-muted); }
+.sub-post {
+padding: 24px 0;
+border-bottom: 1px solid var(--border);
+}
+.sub-post:last-child { border-bottom: none; }
+.sub-post-meta { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 6px; }
+.sub-post h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.sub-entry {
+padding-bottom: 28px;
+margin-bottom: 28px;
+border-bottom: 1px solid var(--border);
+}
+.sub-entry:last-child { border-bottom: none; }
+.sub-entry-date { font-size: 0.8125rem; font-weight: 600; color: var(--primary-hover); margin-bottom: 6px; }
+.tag {
+display: inline-block;
+font-size: 0.7rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+padding: 2px 8px;
+border-radius: 4px;
+margin-right: 6px;
+}
+.tag-new { background: rgba(52,211,153,0.15); color: var(--success); }
+.tag-improve { background: rgba(99,102,241,0.15); color: var(--primary-hover); }
+.tag-fix { background: rgba(248,113,113,0.15); color: #f87171; }
+.team-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 16px;
+margin-top: 20px;
+}
+.team-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 18px;
+text-align: center;
+}
+.team-avatar {
+width: 48px; height: 48px; border-radius: 50%;
+background: rgba(99,102,241,0.2);
+display: grid; place-items: center;
+margin: 0 auto 10px;
+font-weight: 700; color: var(--primary-hover);
+}
+.team-card strong { display: block; font-size: 0.9rem; color: var(--text); }
+.team-card span { font-size: 0.75rem; color: var(--text-muted); }
+.contact-form label {
+display: block;
+font-size: 0.875rem;
+font-weight: 600;
+margin-bottom: 6px;
+color: var(--text-muted);
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+width: 100%;
+padding: 12px 14px;
+margin-bottom: 16px;
+border: 1px solid var(--border);
+border-radius: 8px;
+background: var(--surface);
+color: var(--text);
+font-family: inherit;
+font-size: 0.95rem;
+outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus { border-color: var(--primary); }
+.contact-form textarea { min-height: 110px; resize: vertical; }
+.contact-success { display: none; color: var(--success); font-weight: 500; margin-top: 12px; }
+.sec-badges {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin: 20px 0 28px;
+}
+.sec-badge {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 10px 14px;
+font-size: 0.85rem;
+font-weight: 600;
+}
+.sec-badge span { color: var(--success); margin-right: 4px; }
+/* ========== FOOTER ========== */
+footer {
+border-top: 1px solid var(--border);
+padding: 48px 0 32px;
+}
+.footer-inner {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 32px;
+margin-bottom: 40px;
+}
+.footer-brand p {
+font-size: 0.875rem;
+color: var(--text-muted);
+max-width: 280px;
+margin-top: 12px;
+}
+.footer-links {
+display: flex;
+gap: 48px;
+flex-wrap: wrap;
+}
+.footer-col h4 {
+font-size: 0.8125rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: var(--text-muted);
+margin-bottom: 16px;
+}
+.footer-col ul {
+list-style: none;
+}
+.footer-col li {
+margin-bottom: 10px;
+}
+.footer-col a {
+font-size: 0.9375rem;
+color: var(--text-muted);
+transition: color 0.15s;
+}
+.footer-col a:hover {
+color: var(--text);
+}
+.footer-bottom {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 16px;
+padding-top: 24px;
+border-top: 1px solid var(--border);
+font-size: 0.8125rem;
+color: var(--text-muted);
+}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+.features-grid,
+.pricing-grid,
+.testimonials-grid,
+.steps {
+grid-template-columns: 1fr;
+max-width: 420px;
+margin-left: auto;
+margin-right: auto;
+}
+.price-card.popular {
+order: -1;
+}
+}
+@media (max-width: 768px) {
+.nav-links,
+.nav-cta .btn-ghost {
+display: none;
+}
+.mobile-toggle {
+display: block;
+}
+.nav-links.open {
+display: flex;
+flex-direction: column;
+position: absolute;
+top: 72px;
+left: 0;
+right: 0;
+background: var(--bg);
+border-bottom: 1px solid var(--border);
+padding: 24px;
+gap: 16px;
+}
+.nav-links.open + .nav-cta {
+display: none;
+}
+.hero {
+padding: 64px 0 80px;
+}
+.cta-box {
+padding: 48px 24px;
+}
+.footer-inner {
+flex-direction: column;
+}
+}
+@media (min-width: 901px) and (max-width: 1024px) {
+.features-grid,
+.pricing-grid,
+.testimonials-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.pricing-grid .price-card:last-child {
+grid-column: 1 / -1;
+max-width: 420px;
+margin: 0 auto;
+}
+}
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="container nav-inner">
+<a href="#home" class="logo" id="logoHome">
+<span class="logo-mark">N</span>
+NexusAI
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#features">Features</a></li>
+<li><a href="#how">How it works</a></li>
+<li><a href="#integrations">Integrations</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#testimonials">Customers</a></li>
+</ul>
+<div class="nav-cta">
+<a href="#signup" class="btn btn-ghost btn-sm">Log in</a>
+<a href="#signup" class="btn btn-primary btn-sm">Start free trial</a>
+</div>
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+</div>
+</nav>
+<!-- LANDING VIEW -->
+<div class="landing-view" id="landingView">
+<!-- HERO -->
+<header class="hero">
+<div class="container hero-content">
+<div class="badge">
+<span class="badge-dot"></span>
+Now with GPT-4o powered automation
+</div>
+<h1>Ship products <span>3× faster</span> with AI workflows</h1>
+<p class="hero-sub">NexusAI automates the busywork so your team can focus on building. Align priorities, generate specs, and close loops — all in one place.</p>
+<div class="hero-ctas">
+<a href="#signup" class="btn btn-primary btn-lg">Start free trial</a>
+<a href="#features" class="btn btn-ghost btn-lg">See how it works</a>
+</div>
+<div class="hero-social-proof">
+<div class="avatars">
+<div class="avatar" style="background:#6366f1;color:white;">AK</div>
+<div class="avatar" style="background:#22d3ee;color:#0b0f19;">MR</div>
+<div class="avatar" style="background:#34d399;color:#0b0f19;">JL</div>
+<div class="avatar" style="background:#f472b6;color:white;">SK</div>
+<div class="avatar">+</div>
+</div>
+<p>Trusted by <strong>2,400+</strong> product teams worldwide</p>
+</div>
+</div>
+</header>
+<!-- SOCIAL LOGOS -->
+<div class="logos">
+<div class="container">
+<p class="logos-label">Powering teams at</p>
+<div class="logos-row">
+<span class="logo-item">Acme Corp</span>
+<span class="logo-item">Linear</span>
+<span class="logo-item">Vercel</span>
+<span class="logo-item">Notion</span>
+<span class="logo-item">Stripe</span>
+<span class="logo-item">Figma</span>
+</div>
+</div>
+</div>
+<!-- FEATURES -->
+<section id="features">
+<div class="container">
+<div class="section-header">
+<h2>Everything your team needs to move faster</h2>
+<p>From idea to shipped feature — NexusAI removes the friction at every step.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<h3>AI Spec Generator</h3>
+<p>Turn rough ideas into detailed product specs, user stories, and acceptance criteria in seconds.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔄</div>
+<h3>Smart Workflows</h3>
+<p>Automate handoffs, status updates, and follow-ups so nothing falls through the cracks.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<h3>Priority Alignment</h3>
+<p>Surface the highest-impact work with AI ranking based on goals, effort, and customer signal.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔗</div>
+<h3>Deep Integrations</h3>
+<p>Connect Slack, GitHub, Linear, Jira, and Notion. NexusAI lives where your team already works.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🛡️</div>
+<h3>Enterprise Security</h3>
+<p>SOC 2 Type II, SSO, audit logs, and data residency options. Built for security-conscious teams.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📈</div>
+<h3>Real-time Insights</h3>
+<p>Track cycle time, throughput, and blockers with dashboards that update as work happens.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS -->
+<section id="how">
+<div class="container">
+<div class="section-header">
+<h2>Up and running in minutes</h2>
+<p>No complex setup. Connect your tools and start shipping.</p>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Connect your stack</h3>
+<p>Link Slack, GitHub, and your project tracker with one-click OAuth.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Define your goals</h3>
+<p>Tell NexusAI what matters this quarter. It learns your priorities.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Ship with confidence</h3>
+<p>Get AI-generated specs, automated updates, and clear next actions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- INTEGRATIONS -->
+<section id="integrations">
+<div class="container">
+<div class="section-header">
+<h2>Works with the tools you already use</h2>
+<p>One-click OAuth. No brittle zaps. NexusAI stays in sync with your stack.</p>
+</div>
+<div class="integrations-grid">
+<div class="integration-card">
+<div class="integration-icon">💬</div>
+<h3>Slack</h3>
+<p>Updates, alerts & AI replies</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">🐙</div>
+<h3>GitHub</h3>
+<p>PRs, issues & deployments</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">📐</div>
+<h3>Linear</h3>
+<p>Issues & project sync</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">📋</div>
+<h3>Jira</h3>
+<p>Epics, sprints & status</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">📝</div>
+<h3>Notion</h3>
+<p>Specs & knowledge base</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">🎨</div>
+<h3>Figma</h3>
+<p>Design handoff links</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">📊</div>
+<h3>Amplitude</h3>
+<p>Product analytics signal</p>
+</div>
+<div class="integration-card">
+<div class="integration-icon">🔗</div>
+<h3>Webhooks</h3>
+<p>Custom event pipelines</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+<div class="container">
+<div class="section-header">
+<h2>Simple, transparent pricing</h2>
+<p>Start free. Upgrade when your team is ready to scale.</p>
+</div>
+<!-- Interactive Pricing Calculator -->
+<div class="pricing-calculator" id="pricingCalculator">
+<div class="calc-controls">
+<div>
+<label class="calc-label">Billing period</label>
+<div class="billing-toggle" role="group" aria-label="Billing period">
+<button type="button" data-billing="monthly" class="active" id="billingMonthly">Monthly</button>
+<button type="button" data-billing="annual" id="billingAnnual">
+Annual <span class="save-badge">Save 20%</span>
+</button>
+</div>
+</div>
+<div class="seats-control">
+<div class="seats-header">
+<label class="calc-label" for="seatsSlider" style="margin-bottom:0">Team size</label>
+<span class="seats-value"><span id="seatsDisplay">10</span> seats</span>
+</div>
+<input
+type="range"
+id="seatsSlider"
+class="seats-slider"
+min="1"
+max="100"
+value="10"
+aria-valuemin="1"
+aria-valuemax="100"
+aria-valuenow="10"
+aria-label="Number of team seats"
+>
+<div class="seats-range">
+<span>1</span>
+<span>50</span>
+<span>100+</span>
+</div>
+</div>
+</div>
+<div class="calc-result">
+<div class="calc-plan-name" id="calcPlanName">Pro Plan</div>
+<div class="calc-total" id="calcTotal">$290 <span>/mo</span></div>
+<p class="calc-breakdown" id="calcBreakdown">$29 × 10 seats · billed monthly</p>
+<p class="calc-savings" id="calcSavings">You save $696 / year</p>
+<a href="#signup" class="btn btn-primary btn-md calc-cta" id="calcCta">Start 14-day trial</a>
+<p class="calc-note" id="calcNote">No credit card required · Cancel anytime</p>
+</div>
+</div>
+<div class="pricing-grid">
+<div class="price-card">
+<div class="price-tier">Starter</div>
+<div class="price-amount">$0 <span>/mo</span></div>
+<p class="price-desc">Perfect for small teams exploring AI workflows.</p>
+<ul class="price-features">
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Up to 5 members
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+50 AI generations / month
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Core integrations
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Community support
+</li>
+</ul>
+<a href="#signup" class="btn btn-ghost btn-md">Get started free</a>
+</div>
+<div class="price-card popular">
+<span class="popular-badge">Most popular</span>
+<div class="price-tier">Pro</div>
+<div class="price-amount" id="proPriceAmount">$29 <span id="proPriceUnit">/user/mo</span></div>
+<p class="price-desc">For growing product teams that ship weekly.</p>
+<ul class="price-features">
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Unlimited members
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Unlimited AI generations
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+All integrations + webhooks
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Priority support
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Advanced analytics
+</li>
+</ul>
+<a href="#signup" class="btn btn-primary btn-md">Start 14-day trial</a>
+</div>
+<div class="price-card">
+<div class="price-tier">Enterprise</div>
+<div class="price-amount">Custom</div>
+<p class="price-desc">Security, compliance, and dedicated support.</p>
+<ul class="price-features">
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Everything in Pro
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+SSO & SCIM
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Dedicated success manager
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+Custom data residency
+</li>
+<li>
+<svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+SLA & audit logs
+</li>
+</ul>
+<a href="#signup" class="btn btn-ghost btn-md">Contact sales</a>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+<div class="container">
+<div class="section-header">
+<h2>Loved by product teams</h2>
+<p>See why fast-moving companies choose NexusAI.</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<blockquote>"We cut our average cycle time from 18 days to 6. NexusAI didn't just speed us up — it changed how we prioritize."</blockquote>
+<div class="testimonial-author">
+<div class="author-avatar">AK</div>
+<div class="author-info">
+<strong>Alex Kim</strong>
+<span>Head of Product, Acme</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<blockquote>"The AI spec generator is unreal. What used to take a PM half a day now takes five minutes — and the quality is better."</blockquote>
+<div class="testimonial-author">
+<div class="author-avatar">MR</div>
+<div class="author-info">
+<strong>Maya Ruiz</strong>
+<span>VP Engineering, Launchpad</span>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<blockquote>"Finally an AI tool that actually integrates with our existing stack. Setup took 10 minutes and the whole team adopted it overnight."</blockquote>
+<div class="testimonial-author">
+<div class="author-avatar">JL</div>
+<div class="author-info">
+<strong>Jordan Lee</strong>
+<span>CTO, Northstar</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA + EMAIL SIGNUP -->
+<section id="signup" class="cta-section">
+<div class="container">
+<div class="cta-box">
+<h2>Ready to ship faster?</h2>
+<p>Join 2,400+ teams already using NexusAI. Start your free trial — no credit card required.</p>
+<form class="signup-form" id="signupForm">
+<input type="email" placeholder="Enter your work email" required aria-label="Email address">
+<button type="submit" class="btn btn-primary btn-md">Start free trial</button>
+</form>
+<p class="form-note">14-day free trial · Cancel anytime · SOC 2 compliant</p>
+<p class="form-success" id="formSuccess">Thanks! Check your inbox for next steps.</p>
+</div>
+</div>
+</section>
+</div><!-- /.landing-view -->
+<!-- ========== SUBPAGES ========== -->
+<div class="subpage-view" id="page-about">
+<a href="#home" class="subpage-back">← Back to home</a>
+<h1>About NexusAI</h1>
+<p class="lead">We're building the AI layer that helps product teams ship faster without the chaos.</p>
+<h2>Our mission</h2>
+<p>Product teams spend too much time on status updates, handoffs, and rewriting the same specs. NexusAI automates the busywork so engineers and PMs can focus on building great products.</p>
+<p>We believe the best teams win by reducing friction — not by adding more process. Our platform connects the tools you already use and uses AI to keep everyone aligned on what matters.</p>
+<h2>The team</h2>
+<p>We're a small, product-obsessed team based in San Francisco and remote across the US and Europe.</p>
+<div class="team-grid">
+<div class="team-card"><div class="team-avatar">SK</div><strong>Sam Kim</strong><span>CEO & Co-founder</span></div>
+<div class="team-card"><div class="team-avatar">AR</div><strong>Aisha Rahman</strong><span>CTO & Co-founder</span></div>
+<div class="team-card"><div class="team-avatar">JL</div><strong>Jordan Lee</strong><span>Head of Product</span></div>
+<div class="team-card"><div class="team-avatar">MP</div><strong>Maya Patel</strong><span>Head of Engineering</span></div>
+</div>
+<h2>Backed by</h2>
+<p>We're backed by leading investors who believe AI will transform how software is built. Previously at Linear, Stripe, and Notion — we've seen the pain firsthand and decided to fix it.</p>
+</div>
+<div class="subpage-view" id="page-blog"><a href="#home" class="subpage-back">← Back to home</a><h1>Blog</h1><p class="lead">Content available in the project README. <a href="#home">Return home</a>.</p></div>
+<div class="subpage-view" id="page-careers"><a href="#home" class="subpage-back">← Back to home</a><h1>Careers</h1><p class="lead">Content available in the project README. <a href="#home">Return home</a>.</p></div>
+<div class="subpage-view" id="page-contact">
+<a href="#home" class="subpage-back">← Back to home</a>
+<h1>Contact us</h1>
+<p class="lead">Sales, support, partnerships, or press — we'd love to hear from you.</p>
+<form class="contact-form" id="contactForm">
+<label for="c-name">Name</label>
+<input type="text" id="c-name" required placeholder="Your name">
+<label for="c-email">Work email</label>
+<input type="email" id="c-email" required placeholder="you@company.com">
+<label for="c-topic">Topic</label>
+<select id="c-topic">
+<option>Sales / demo</option>
+<option>Support</option>
+<option>Partnerships</option>
+<option>Careers</option>
+<option>Press</option>
+<option>Other</option>
+</select>
+<label for="c-msg">Message</label>
+<textarea id="c-msg" required placeholder="How can we help?"></textarea>
+<button type="submit" class="btn btn-primary btn-md">Send message</button>
+<p class="contact-success" id="contactSuccess">Thanks — we'll get back to you within one business day.</p>
+</form>
+<p style="margin-top:24px;font-size:0.9rem;color:var(--text-muted)">Or email: hello@nexusai.example</p>
+</div>
+<div class="subpage-view" id="page-changelog"><a href="#home" class="subpage-back">← Back to home</a><h1>Changelog</h1><p class="lead">Content available in the project README. <a href="#home">Return home</a>.</p></div>
+<div class="subpage-view" id="page-privacy">
+<a href="#home" class="subpage-back">← Back to home</a>
+<h1>Privacy Policy</h1>
+<p class="lead" style="font-size:0.9rem">Last updated: September 1, 2026</p>
+<p>NexusAI Inc. respects your privacy. This policy describes how we collect, use, and protect information when you use our website and services.</p>
+<h2>Information we collect</h2>
+<ul>
+<li><strong>Account data:</strong> name, email, company, and authentication details.</li>
+<li><strong>Usage data:</strong> product interactions and performance metrics.</li>
+<li><strong>Integration data:</strong> content you choose to sync from connected tools.</li>
+<li><strong>Billing data:</strong> processed by our payment provider; we do not store full card numbers.</li>
+</ul>
+<h2>How we use information</h2>
+<ul>
+<li>To provide, maintain, and improve the service</li>
+<li>To process AI generations and workflow automation you request</li>
+<li>To communicate about the product, security, and support</li>
+<li>To detect abuse and ensure security</li>
+</ul>
+<h2>Data sharing</h2>
+<p>We do not sell personal data. We share data only with subprocessors necessary to run the service under appropriate contracts.</p>
+<h2>Your rights</h2>
+<p>You may request access, correction, export, or deletion of your personal data. Contact privacy@nexusai.example.</p>
+</div>
+<div class="subpage-view" id="page-terms"><a href="#home" class="subpage-back">← Back to home</a><h1>Terms of Service</h1><p class="lead">Content available in the project README. <a href="#home">Return home</a>.</p></div>
+<div class="subpage-view" id="page-security"><a href="#home" class="subpage-back">← Back to home</a><h1>Security</h1><p class="lead">Content available in the project README. <a href="#home">Return home</a>.</p></div>
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="#home" class="logo">
+<span class="logo-mark">N</span>
+NexusAI
+</a>
+<p>AI-powered workflows that help product teams ship faster and stay aligned.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4>Product</h4>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#integrations">Integrations</a></li>
+<li><a href="#changelog">Changelog</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#careers">Careers</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="#privacy">Privacy</a></li>
+<li><a href="#terms">Terms</a></li>
+<li><a href="#security">Security</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 NexusAI Inc. All rights reserved.</span>
+<span>Built for teams that move fast.</span>
+</div>
+</div>
+</footer>
+<script>
+// Sticky nav border on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+// Mobile menu toggle
+const toggle = document.getElementById('mobileToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+links.classList.toggle('open');
+});
+// Close mobile menu on link click
+links.querySelectorAll('a').forEach(a => {
+a.addEventListener('click', () => links.classList.remove('open'));
+});
+// Signup form (demo only)
+document.getElementById('signupForm').addEventListener('submit', (e) => {
+e.preventDefault();
+const form = e.target;
+form.style.display = 'none';
+document.querySelector('.form-note').style.display = 'none';
+document.getElementById('formSuccess').style.display = 'block';
+});
+// ========== Pricing Calculator ==========
+const PRICE_PER_SEAT_MONTHLY = 29;
+const ANNUAL_DISCOUNT = 0.20; // 20% off
+const seatsSlider = document.getElementById('seatsSlider');
+const seatsDisplay = document.getElementById('seatsDisplay');
+const billingMonthlyBtn = document.getElementById('billingMonthly');
+const billingAnnualBtn = document.getElementById('billingAnnual');
+const calcPlanName = document.getElementById('calcPlanName');
+const calcTotal = document.getElementById('calcTotal');
+const calcBreakdown = document.getElementById('calcBreakdown');
+const calcSavings = document.getElementById('calcSavings');
+const calcCta = document.getElementById('calcCta');
+const calcNote = document.getElementById('calcNote');
+const proPriceAmount = document.getElementById('proPriceAmount');
+const proPriceUnit = document.getElementById('proPriceUnit');
+let billing = 'monthly'; // 'monthly' | 'annual'
+function formatCurrency(n) {
+return '$' + Math.round(n).toLocaleString('en-US');
+}
+function updateCalculator() {
+const seats = parseInt(seatsSlider.value, 10);
+seatsDisplay.textContent = seats;
+seatsSlider.setAttribute('aria-valuenow', seats);
+// Recommend plan
+let plan = 'Pro';
+let ctaText = 'Start 14-day trial';
+let note = 'No credit card required · Cancel anytime';
+if (seats <= 5) {
+plan = 'Starter';
+ctaText = 'Get started free';
+note = 'Free forever for small teams · Upgrade anytime';
+} else if (seats >= 50) {
+plan = 'Enterprise';
+ctaText = 'Contact sales';
+note = 'Custom pricing · Volume discounts available';
+}
+calcPlanName.textContent = plan + ' Plan';
+calcCta.textContent = ctaText;
+if (plan === 'Starter') {
+calcTotal.innerHTML = '$0 <span>/mo</span>';
+calcBreakdown.textContent = 'Up to 5 seats · free forever';
+calcSavings.classList.remove('visible');
+calcNote.textContent = note;
+return;
+}
+if (plan === 'Enterprise') {
+calcTotal.innerHTML = 'Custom';
+calcBreakdown.textContent = seats + '+ seats · tailored for your org';
+calcSavings.classList.remove('visible');
+calcNote.textContent = note;
+return;
+}
+// Pro plan pricing
+const monthlyPerSeat = PRICE_PER_SEAT_MONTHLY;
+const annualPerSeat = monthlyPerSeat * (1 - ANNUAL_DISCOUNT);
+const perSeat = billing === 'annual' ? annualPerSeat : monthlyPerSeat;
+const monthlyTotal = seats * perSeat;
+if (billing === 'annual') {
+const yearlyTotal = monthlyTotal * 12;
+const fullYearly = seats * monthlyPerSeat * 12;
+const savings = fullYearly - yearlyTotal;
+calcTotal.innerHTML = formatCurrency(monthlyTotal) + ' <span>/mo</span>';
+calcBreakdown.textContent = formatCurrency(perSeat) + ' × ' + seats + ' seats · billed annually (' + formatCurrency(yearlyTotal) + '/yr)';
+calcSavings.textContent = 'You save ' + formatCurrency(savings) + ' / year';
+calcSavings.classList.add('visible');
+// Sync Pro card
+proPriceAmount.innerHTML = formatCurrency(perSeat) + ' <span id="proPriceUnit">/user/mo</span>';
+document.getElementById('proPriceUnit').textContent = '/user/mo (billed annually)';
+} else {
+calcTotal.innerHTML = formatCurrency(monthlyTotal) + ' <span>/mo</span>';
+calcBreakdown.textContent = formatCurrency(perSeat) + ' × ' + seats + ' seats · billed monthly';
+calcSavings.classList.remove('visible');
+// Sync Pro card
+proPriceAmount.innerHTML = '$29 <span id="proPriceUnit">/user/mo</span>';
+}
+calcNote.textContent = note;
+}
+// Event listeners
+seatsSlider.addEventListener('input', updateCalculator);
+billingMonthlyBtn.addEventListener('click', () => {
+billing = 'monthly';
+billingMonthlyBtn.classList.add('active');
+billingAnnualBtn.classList.remove('active');
+updateCalculator();
+});
+billingAnnualBtn.addEventListener('click', () => {
+billing = 'annual';
+billingAnnualBtn.classList.add('active');
+billingMonthlyBtn.classList.remove('active');
+updateCalculator();
+});
+// Initial render
+updateCalculator();
+// ========== Hash-based page routing ==========
+const SUBPAGES = ['about', 'blog', 'careers', 'contact', 'changelog', 'privacy', 'terms', 'security'];
+const SECTION_IDS = ['features', 'how', 'integrations', 'pricing', 'testimonials', 'signup'];
+function showHome() {
+document.body.classList.remove('show-subpage');
+document.querySelectorAll('.subpage-view').forEach(el => el.classList.remove('active'));
+window.scrollTo(0, 0);
+}
+function showSubpage(name) {
+document.body.classList.add('show-subpage');
+document.querySelectorAll('.subpage-view').forEach(el => el.classList.remove('active'));
+const page = document.getElementById('page-' + name);
+if (page) {
+page.classList.add('active');
+window.scrollTo(0, 0);
+} else {
+showHome();
+}
+}
+function handleRoute() {
+const hash = (window.location.hash || '#home').slice(1).split('?')[0];
+if (!hash || hash === 'home') {
+showHome();
+return;
+}
+if (SUBPAGES.includes(hash)) {
+showSubpage(hash);
+return;
+}
+// Landing section anchors
+showHome();
+if (SECTION_IDS.includes(hash)) {
+// Allow browser smooth scroll after landing is visible
+requestAnimationFrame(() => {
+const el = document.getElementById(hash);
+if (el) el.scrollIntoView({ behavior: 'smooth' });
+});
+}
+}
+window.addEventListener('hashchange', handleRoute);
+handleRoute(); // initial
+// Contact form on subpage
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+contactForm.addEventListener('submit', (e) => {
+e.preventDefault();
+contactForm.querySelector('button').style.display = 'none';
+document.getElementById('contactSuccess').style.display = 'block';
+});
+}
+</script>
+</body>
+</html>

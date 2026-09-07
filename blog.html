@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — NexusAI</title>
+  <meta name="description" content="Product insights, AI workflows, and shipping tips from the NexusAI team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19; --surface: #111827; --border: #243044;
+      --text: #f1f5f9; --text-muted: #94a3b8;
+      --primary: #6366f1; --primary-hover: #818cf8; --accent: #22d3ee;
+      --radius: 12px; --max-width: 720px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--primary-hover); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(11,15,25,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 7px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: white; }
+    .nav a.back { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); }
+    .nav a.back:hover { color: var(--text); text-decoration: none; }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 64px 24px 96px; }
+    h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .lead { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 48px; }
+    .post { padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .post:last-child { border-bottom: none; }
+    .post-meta { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 8px; }
+    .post h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+    .post h2 a { color: var(--text); }
+    .post h2 a:hover { color: var(--primary-hover); text-decoration: none; }
+    .post p { color: var(--text-muted); font-size: 0.95rem; }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; font-size: 0.8125rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">N</span> NexusAI</a>
+      <a href="index.html" class="back">← Back to home</a>
+    </div>
+  </nav>
+  <main>
+    <h1>Blog</h1>
+    <p class="lead">Shipping tips, AI workflows, and product thinking from the NexusAI team.</p>
+
+    <article class="post">
+      <div class="post-meta">Sep 2, 2026 · 6 min read</div>
+      <h2><a href="#">How we cut cycle time by 60% with AI specs</a></h2>
+      <p>A deep dive into how product teams use AI-generated specs and acceptance criteria to remove the biggest bottleneck in the delivery pipeline.</p>
+    </article>
+    <article class="post">
+      <div class="post-meta">Aug 18, 2026 · 4 min read</div>
+      <h2><a href="#">Why priority alignment is the real unlock</a></h2>
+      <p>Most teams don't have a capacity problem — they have a prioritization problem. Here's how AI ranking changes the game.</p>
+    </article>
+    <article class="post">
+      <div class="post-meta">Aug 5, 2026 · 5 min read</div>
+      <h2><a href="#">Integrating NexusAI with Linear and GitHub</a></h2>
+      <p>A practical walkthrough of connecting your issue tracker and code host so status updates happen automatically.</p>
+    </article>
+    <article class="post">
+      <div class="post-meta">Jul 22, 2026 · 3 min read</div>
+      <h2><a href="#">Announcing annual billing and volume discounts</a></h2>
+      <p>Save 20% with annual plans and get volume pricing for larger teams. Details inside.</p>
+    </article>
+  </main>
+  <footer>© 2026 NexusAI Inc. · <a href="index.html">Home</a> · <a href="contact.html">Contact</a></footer>
+</body>
+</html>
